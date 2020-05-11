@@ -26,7 +26,7 @@ class Solution(object):
         return -1
 '''
 
-# Elegant second try (slower somehow):
+# Elegant second try:
 class Solution(object):
     def firstUniqChar(self, s):
         """
@@ -36,13 +36,9 @@ class Solution(object):
         seen_dict = {}
 
         for i in range(len(s)):
-            if seen_dict.get(s[i]):
-                seen_dict[s[i]] += 1
-            else:
-                seen_dict[s[i]] = 1
+            seen_dict[s[i]] = 2 if (seen_dict.get(s[i]) is not None) else 1
 
         for i in range(len(s)):
-            if seen_dict.get(s[i]):
-                if seen_dict[s[i]] < 2:
-                    return i
+            if seen_dict[s[i]] < 2:
+                return i
         return -1
