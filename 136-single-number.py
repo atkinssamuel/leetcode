@@ -1,4 +1,5 @@
 # First pass solution: 68ms 85.51%
+'''
 class Solution(object):
     def singleNumber(self, nums):
         """
@@ -16,3 +17,21 @@ class Solution(object):
                 return nums[i]
             i += 2
         return nums[-1]
+'''
+
+# Efficient sets solution: 64ms 95.57%
+class Solution(object):
+    def singleNumber(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        duplicates_set = set()
+
+        for element in nums:
+            if element in duplicates_set:
+                duplicates_set.remove(element)
+            else:
+                duplicates_set.add(element)
+
+        return duplicates_set.pop()
