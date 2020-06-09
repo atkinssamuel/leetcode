@@ -1,4 +1,4 @@
-# One-pass hash solution
+# One-pass hash solution: 48ms, 49.94%
 class Solution(object):
     def twoSum(self, nums, target):
         """
