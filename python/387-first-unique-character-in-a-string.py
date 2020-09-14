@@ -42,3 +42,35 @@ class Solution(object):
             if seen_dict[s[i]] < 2:
                 return i
         return -1
+
+# O(n) time-complexity, O(n) space-complexity, 192 ms, faster than 54.74%
+class Solution(object):
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if s == "":
+            return -1
+        
+        if len(s) == 1:
+            return 0
+        
+        seen = set()
+        unique = {}
+        
+        for i in range(len(s)):
+            if s[i] not in seen:
+                seen.add(s[i])
+                unique[s[i]] = i
+            else:
+                if unique.get(s[i]) is not None:
+                    unique.pop(s[i])
+            
+        values = unique.values()
+        
+        if len(values) == 0:
+            return -1
+        
+        return min(values)
+        
