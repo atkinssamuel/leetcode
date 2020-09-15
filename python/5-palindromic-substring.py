@@ -1,4 +1,4 @@
-# Center expand method, O(n^2) time-complexity, O(n) space-complexity, 2872 ms, faster than 35.36%
+# Center expand method, O(n^2) time-complexity, O(n) space-complexity, 1904 ms, faster than 42.58%
 class Solution(object):
     def longestPalindrome(self, s):
         """
